@@ -8,8 +8,8 @@ kernel:
     resource: ../src/Kernel.php
     type: annotation
 
-# home:
-#     path: /home
-#     controller: 'App\Controller\HomeController::index'
+home:
+    path: /home
+    controller: 'App\Controller\HomeController::index'
 
 

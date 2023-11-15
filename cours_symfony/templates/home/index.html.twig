@@ -3,18 +3,78 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello {{controller_name}}!</h1>
+    </div>
+   
+        {{ dump(personne) }}
+   
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Stagiaire/Documents/Git/Exercice-symfony/cours_symfony/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Stagiaire/Documents/Git/Exercice-symfony/cours_symfony/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+<ul>
+    <li>
+        {{tableau[0]}}
+    </li>
+    <li>
+        {{tableau['1']}}
+    </li>
+    <li>
+        {{tableau['2']}}
+    </li>
+
+</ul>
+<ul>
+    <li>
+        {{personne.id() }}
+    </li>
+    <li>
+        {{personne.nom() }}
+    </li>
+    <li>
+        {{personne.getPrenom() }}
+    </li>
+
+</ul>
+<div>
+<p> {{personne.prenom ~" "~ personne.nom }} </p>
 </div>
+
+
+{% set str = 'bonjour'%}
+
+{{str}}
+
+
+{% with %}
+{% set x = 2 %}
+{{ x }}
+{# affiche 2 #}
+{% endwith %}
+
+{% with %}
+{% set x = 2 %}
+{{ x }}
+{# affiche 2 #}
+{% endwith %}
+
+
+{% set y = 5 %}
+{% with { x: 2 } %}
+{{ x }} {{ y }}
+{# affiche 2 5 #}
+{% endwith %}
+
+
+{% set x = 2 %}
+{% set y = 5 %}
+{{ x + y }}
+{# affiche 7 #}
+
+{{ 8 in tableau }}
+
+{{ 1 not in tableau }}
+
+{{ personne.prenom starts with 'j' }}
+
+
 {% endblock %}
+
