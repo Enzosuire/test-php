@@ -75,6 +75,94 @@
 
 {{ personne.prenom starts with 'j' }}
 
+{% if tableau[0] > 0 %}
+{{ tableau[0] }} est positif
+{% endif %}
+
+{{ tableau[0] }} est
+{% if tableau[0] > 0 %}
+positif
+{% else %}
+négatif
+{% endif %}
+
+{% for i in range(low=0, high=7, step=2) %}
+{{ i }} <br>
+{% endfor %}
+
+{% for i in range('a', 'f') %}
+{{ i }} <br>
+{% endfor %}
+
+{% for i in range('a', 'f') %}
+{{ i }} <br>
+{% endfor %}
+
+
+
+
+
+{% for cle, valeur in tableau %}
+ {{ cle ~ ' : ' ~ valeur }} <br>
+{% endfor %}
+
+{% for valeur in tableau %}
+{{ loop.index0 }} : {{ valeur }}
+<br>
+{% endfor %}
+
+{{ personne.prenom | length }}
+
+{{ ' john wick! ' | trim | length }}
+
+{{ ' john wick!' | trim('!') | length }}
+{{ ' john wick! ' | trim(' ', 'right') | length }}
+{{ ' john wick! ' | trim(side='left') | length }}
+
+{{ personne.prenom | capitalize ~ " " ~ personne.nom | upper }}
+{% apply upper %}
+Bonjour {{ personne.prenom }}
+{% endapply %}
+
+{% apply upper %}
+Bonjour {{ personne.prenom }}
+{% endapply %}
+
+{{ personne.prenom | capitalize ~ " " ~ personne.nom | upper }}
+
+{% for elt in tableau | slice(0, 2) %}
+{{ elt }}
+{% endfor %}
+
+{% for elt in tableau [0:2] %}
+{{ elt }}
+{% endfor %}
+
+
+{% for elt in tableau [:1] %}
+{{ elt }}
+{% endfor %}
+
+{% for elt in tableau [1:] %}
+{{ elt }}
+{% endfor %}
+
+
+{{ tableau | reduce((somme, valeur) => somme + valeur) }}
+
+
+{{ tableau | reduce((somme, valeur) => somme + valeur, 5) }}
+
+{{ tableau | map(elt => elt + 2) | reduce((somme, valeur) => somme + valeur) }}
+
+{{ 'hello <br>' }}
+
+{{ 'hello <br>' | e }}
+
+
+{{ personne.prenom matches '/^j.*n$/' }}
+
+
 
 {% endblock %}
 
