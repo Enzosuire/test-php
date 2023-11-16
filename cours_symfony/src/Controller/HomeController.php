@@ -14,6 +14,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
    
+     // #[Route('/index', name: "index_route")]
+    #[Route('/menu', name: "menu_route")]
+    public function menu()
+    {
+     return $this->render('shared/_menu.twig', []);
+    }
+
+
+
     
     // #[Route('/index', name: "index_route")]
     #[Route('/home/', name: "home_route")]

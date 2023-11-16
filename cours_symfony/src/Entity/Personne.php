@@ -8,70 +8,72 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: PersonneRepository::class)]
 class Personne
 {
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
 
-   #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: "AUTO")]
-    #[ORM\Column(type: "integer")]
-    private $id;
+    #[ORM\Column(length: 255)]
+    private ?string $nom = null;
 
-    #[ORM\Column(type: "string", length: 255)]
-    private $nom;
+    #[ORM\Column(length: 255)]
+    private ?string $prenom = null;
 
-    #[ORM\Column(type: "string", length: 255)]
-    private $prenom;
+    #[ORM\Column(length: 255)]
+    private ?string $sexe = null;
 
+ 
 
-    /**
-     * Get the value of id
-     */
-    public function getId(): int 
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     */
-    public function setId(int $id)
+    public function setId(string $id): static
     {
         $this->id = $id;
 
-       
+        return $this;
     }
 
-    /**
-     * Get the value of nom
-     */
-    public function getNom():? string
+    public function getNom(): ?string
     {
         return $this->nom;
     }
 
-    /**
-     * Set the value of nom
-     */
-    public function setNom(string $nom)
+    public function setNom(string $nom): static
     {
         $this->nom = $nom;
 
-       
+        return $this;
     }
 
-    /**
-     * Get the value of prenom
-     */
-    public function getPrenom(): ? string
+    public function getPrenom(): ?string
     {
         return $this->prenom;
     }
 
-    /**
-     * Set the value of prenom
-     */
-    public function setPrenom(string $prenom){
-
+    public function setPrenom(string $prenom): static
+    {
         $this->prenom = $prenom;
 
-        
+        return $this;
     }
+
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(string $sexe): static
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+
+
+
+  
 }
