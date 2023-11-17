@@ -12,14 +12,14 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    {% if personne is defined %}
-    Personne
-    {{adjectif}}:
-    {{personne.id}}
-    {{personne.prenom}}
-    {{personne.nom}}
+<ul>
 
-    {% endif %}
-
+    {% for personne in personnes %}
+   <li> {{ personne.prenom }}
+         {{ personne.nom }} </li>
+    
+    {% endfor %}
+   
+</ul>
  
 {% endblock %}
