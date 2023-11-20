@@ -21,6 +21,23 @@ class PersonneRepository extends ServiceEntityRepository
         parent::__construct($registry, Personne::class);
     }
 
+    public function findOneByNomAndPrenom(String $nom , string $prenom)
+    {
+        $entityManager = $this->getEntityManager();
+        $query  = $entityManager->getConnection()->prepare(
+        'SELECT *
+        FROM Personne 
+        WHERE nom = :nom
+        and prenom = :prenom'
+        );
+        $result = $query->executeQuery([
+            'nom' => $nom,
+            'prenom' => $prenom
+        ]);
+    return $result->fetchAllAssociative()[0];
+
+    }
+
 //    /**
 //     * @return Personne[] Returns an array of Personne objects
 //     */

@@ -22,6 +22,9 @@ class Personne
     #[ORM\Column(length: 255)]
     private ?string $sexe = null;
 
+    #[ORM\ManyToOne(cascade: ['persist', 'remove'])]
+    private ?Adresse $adresse = null;
+
  
 
     public function getId(): ?int
@@ -68,6 +71,18 @@ class Personne
     public function setSexe(string $sexe): static
     {
         $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?Adresse
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(?Adresse $adresse): static
+    {
+        $this->adresse = $adresse;
 
         return $this;
     }
