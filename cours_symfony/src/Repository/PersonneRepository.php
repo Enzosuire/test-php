@@ -26,7 +26,7 @@ class PersonneRepository extends ServiceEntityRepository
         $entityManager = $this->getEntityManager();
         $query  = $entityManager->getConnection()->prepare(
         'SELECT *
-        FROM Personne 
+        FROM personne 
         WHERE nom = :nom
         and prenom = :prenom'
         );
